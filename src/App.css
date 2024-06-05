@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.FirstName {
+  text-transform: capitalize;
+}
+.midWith {
+  width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
