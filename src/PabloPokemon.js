@@ -11,6 +11,14 @@ import {
   ImageList,
   ImageListItem,
   ButtonGroup,
+  Box,
+  IconButton,
+  CardMedia,
+  theme,
+  PlayArrowIcon,
+  SkipNextIcon,
+  SkipPreviousIcon,
+  direction,
 } from "@mui/material";
 
 const PabloPokemon = () => {
@@ -87,24 +95,57 @@ const PabloPokemon = () => {
       {/* Este elemento aparece solo cuando pokemonsSeleccionado es diferente a Null */}
       <Container>
         {pokemonSeleccionado && (
-          <Card>
-            <CardContent>
-              <Typography variant="h3" className="FirstName">
-                <b>Nombre: </b>
-                {pokemonSeleccionado.name}
-              </Typography>
-              <img src={pokemonSeleccionado.sprites.front_default} alt="" />
-              <Typography variant="H5" component={"div"}>
-                Altura: {pokemonSeleccionado.height}
-              </Typography>
-              <p>Peso: {pokemonSeleccionado.weight}</p>
-              <p>Experiencia base: {pokemonSeleccionado.base_experience}</p>
-              <p>Tipos:</p>
-              <p> Habilidades:</p>
-            </CardContent>
+          <Card sx={{ display: "flex" }} alignItems="center">
+            <CardMedia
+              component="img"
+              sx={{ width: 151 }}
+              image={pokemonSeleccionado.sprites.front_default}
+              alt="Live from space album cover"
+              //   alignItems="middle"
+            />
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <CardContent sx={{ flex: "1 0 auto" }}>
+                <Typography component="div" variant="h3" className="FirstName">
+                  <b>Nombre: </b>
+                  {pokemonSeleccionado.name}
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  color="text.secondary"
+                  component="div"
+                >
+                  <Typography variant="H5" component={"div"}>
+                    Altura: {pokemonSeleccionado.height}
+                  </Typography>
+                  <p>Peso: {pokemonSeleccionado.weight}</p>
+                  <p>Experiencia base: {pokemonSeleccionado.base_experience}</p>
+                  <p>Tipos:</p>
+                  <p> Habilidades:</p>
+                </Typography>
+              </CardContent>
+              <Box
+                sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
+              ></Box>
+            </Box>
           </Card>
         )}
       </Container>
+      <Card>
+        <CardContent>
+          <Typography variant="h3" className="FirstName">
+            <b>Nombre: </b>
+            {pokemonSeleccionado.name}
+          </Typography>
+          <img src={pokemonSeleccionado.sprites.front_default} alt="" />
+          <Typography variant="H5" component={"div"}>
+            Altura: {pokemonSeleccionado.height}
+          </Typography>
+          <p>Peso: {pokemonSeleccionado.weight}</p>
+          <p>Experiencia base: {pokemonSeleccionado.base_experience}</p>
+          <p>Tipos:</p>
+          <p> Habilidades:</p>
+        </CardContent>
+      </Card>
     </div>
   );
 };
